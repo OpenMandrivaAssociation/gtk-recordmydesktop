@@ -1,0 +1,48 @@
+%define oname		recordMyDesktop
+%define	gtkoname	gtk-%{oname}
+
+Summary:	GTK fronted for recordmydesktop
+Name:		gtk-recordmydesktop
+Version:	0.3.3.1
+Release:	%mkrel 1
+License:	GPL
+Group:		Video
+URL:		http://recordmydesktop.sourceforge.net/
+Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-desktop.patch
+BuildRequires:	pygtk2.0-devel
+Requires:	recordmydesktop	>= 0.3.3
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+
+%description
+Frontend for recordmydesktop tool.
+
+%prep
+%setup -q
+%patch0 -p0
+
+%build
+
+%configure2_5x
+
+%make
+
+%install
+[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+
+%makeinstall_std
+
+%find_lang %{gtkoname}
+
+%clean
+[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+
+%files -f %{gtkoname}.lang
+%defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README COPYING
+%attr(755,root,root) %{_bindir}/%{gtkoname}
+%dir %{py_sitedir}/%{oname}/
+%{py_sitedir}/%{oname}/*.py*
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/%{name}.png
+
