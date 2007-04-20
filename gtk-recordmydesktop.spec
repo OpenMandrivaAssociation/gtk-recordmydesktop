@@ -3,13 +3,12 @@
 
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
-Version:	0.3.3.1
+Version:	0.3.4
 Release:	%mkrel 1
 License:	GPL
 Group:		Video
 URL:		http://recordmydesktop.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-desktop.patch
 BuildRequires:	pygtk2.0-devel
 Requires:	recordmydesktop	>= 0.3.3
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -19,7 +18,6 @@ Frontend for recordmydesktop tool.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 
@@ -31,7 +29,10 @@ Frontend for recordmydesktop tool.
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %makeinstall_std
-
+desktop-file-install --vendor="" \
+	--add-category="X-MandrivaLinux-Multimedia-Video" \
+	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+	
 %find_lang %{gtkoname}
 
 %clean
@@ -45,4 +46,3 @@ Frontend for recordmydesktop tool.
 %{py_sitedir}/%{oname}/*.py*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.png
-
