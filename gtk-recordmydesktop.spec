@@ -1,17 +1,16 @@
-%define oname		recordMyDesktop
-%define	gtkoname	gtk-%{oname}
+%define oname recordMyDesktop
+%define	gtkoname gtk-%{oname}
 
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
-Version:	0.3.4
+Version:	0.3.5
 Release:	%mkrel 1
 License:	GPL
 Group:		Video
-URL:		http://recordmydesktop.sourceforge.net/
+URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
 BuildRequires:	pygtk2.0-devel
-Requires:	recordmydesktop	>= 0.3.3
-BuildRequires:	desktop-file-utils
+Requires:	recordmydesktop	>= %{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -31,10 +30,6 @@ Frontend for recordmydesktop tool.
 
 %makeinstall_std
 
-desktop-file-install --vendor="" \
-	--add-category="X-MandrivaLinux-Multimedia-Video" \
-	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-	
 %find_lang %{gtkoname}
 
 %clean
