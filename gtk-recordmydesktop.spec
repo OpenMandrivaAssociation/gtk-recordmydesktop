@@ -3,9 +3,9 @@
 
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
-Version:	0.3.6
-Release:	%mkrel 2
-License:	GPL
+Version:	0.3.7
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		Video
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
@@ -46,7 +46,7 @@ desktop-file-install \
 
 %files -f %{gtkoname}.lang
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog README COPYING
+%doc AUTHORS ChangeLog README
 %{_bindir}/%{gtkoname}
 %dir %{py_sitedir}/%{oname}/
 %{py_sitedir}/%{oname}/*.py*
