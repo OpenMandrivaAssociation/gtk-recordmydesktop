@@ -10,8 +10,8 @@ Group:		Video
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
 BuildRequires:	pygtk2.0-devel
-Requires:	recordmydesktop	>= %{version}
 BuildRequires:	desktop-file-utils
+Requires:	recordmydesktop	>= %{version}
 
 %description
 Frontend for recordmydesktop tool.
@@ -32,6 +32,9 @@ Frontend for recordmydesktop tool.
 desktop-file-install \
 	--add-category="Video;GTK" \
 	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+
+#(tpg) handle icon extension
+sed -i -e 's/^Icon=%{name}.png$/Icon=%{name}/g' %{buildroot}%{_datadir}/applications/*
 
 %find_lang %{gtkoname}
 
