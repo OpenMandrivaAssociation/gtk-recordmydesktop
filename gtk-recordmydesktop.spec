@@ -12,7 +12,6 @@ Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar
 BuildRequires:	pygtk2.0-devel
 Requires:	recordmydesktop	>= %{version}
 BuildRequires:	desktop-file-utils
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Frontend for recordmydesktop tool.
