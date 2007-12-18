@@ -29,12 +29,13 @@ Frontend for recordmydesktop tool.
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %makeinstall_std
-desktop-file-install \
-	--add-category="Video;GTK" \
-	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #(tpg) handle icon extension
 sed -i -e 's/^Icon=%{name}.png$/Icon=%{name}/g' %{buildroot}%{_datadir}/applications/*
+
+desktop-file-install \
+	--add-category="Video;GTK" \
+	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %find_lang %{gtkoname}
 
