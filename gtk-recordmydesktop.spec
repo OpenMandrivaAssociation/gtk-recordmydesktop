@@ -9,6 +9,7 @@ License:	GPLv2+
 Group:		Video
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
+Patch0:		gtk-recordmydesktop-fix-desktop-entry.patch
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	desktop-file-utils
 Requires:	recordmydesktop	>= %{version}
@@ -18,6 +19,7 @@ Frontend for recordmydesktop tool.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 
