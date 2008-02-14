@@ -7,6 +7,7 @@ Version:	0.3.7
 Release:	%mkrel 2
 License:	GPLv2+
 Group:		Video
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
 Patch0:		gtk-recordmydesktop-fix-desktop-entry.patch
