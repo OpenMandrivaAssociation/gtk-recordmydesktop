@@ -3,24 +3,22 @@
 
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
-Version:	0.3.7
-Release:	%mkrel 2
+Version:	0.3.7.2
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Video
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
-Patch0:		gtk-recordmydesktop-fix-desktop-entry.patch
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	desktop-file-utils
 Requires:	recordmydesktop	>= %{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Frontend for recordmydesktop tool.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 
