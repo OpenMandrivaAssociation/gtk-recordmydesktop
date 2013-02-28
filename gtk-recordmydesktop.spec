@@ -4,15 +4,15 @@
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
 Version:	0.3.8
-Release:	%mkrel 3
+Release:	4
 License:	GPLv2+
 Group:		Video
 URL:		http://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	desktop-file-utils
-Requires:	recordmydesktop	>= %{version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Requires:	recordmydesktop >= %{version}
+
 
 %description
 Frontend for recordmydesktop tool.
@@ -27,8 +27,6 @@ Frontend for recordmydesktop tool.
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %makeinstall_std
 
 #(tpg) handle icon extension
@@ -40,21 +38,7 @@ desktop-file-install \
 
 %find_lang %{gtkoname}
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
 %files -f %{gtkoname}.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %{_bindir}/%{gtkoname}
 %dir %{py_sitedir}/%{oname}/
