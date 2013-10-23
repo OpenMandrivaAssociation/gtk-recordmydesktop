@@ -4,7 +4,7 @@
 Summary:	GTK fronted for recordmydesktop
 Name:		gtk-recordmydesktop
 Version:	0.3.8
-Release:	7
+Release:	8
 License:	GPLv2+
 Group:		Video
 URL:		http://recordmydesktop.sourceforge.net
