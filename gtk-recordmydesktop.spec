@@ -4,7 +4,7 @@ Version:	0.3.8
 Release:	6
 License:	GPLv2+
 Group:		Video
-Url:		http://recordmydesktop.sourceforge.net
+Url:		https://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(pygtk-2.0)
 BuildRequires:	desktop-file-utils
