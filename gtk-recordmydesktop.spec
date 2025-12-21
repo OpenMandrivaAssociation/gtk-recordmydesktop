@@ -6,6 +6,11 @@ License:	GPLv2+
 Group:		Video
 Url:		https://recordmydesktop.sourceforge.net
 Source0:	http://downloads.sourceforge.net/recordmydesktop/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(pygtk-2.0)
 BuildRequires:	desktop-file-utils
 Requires:	recordmydesktop >= %{version}
